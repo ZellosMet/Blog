@@ -1,53 +1,13 @@
 <?
 
-$title = "Title";
-$headers = "Recers Post";
+$title = "Blog/Home";
+$headers = "Recent Posts";
 
-$posts = [
-  1 => [
-        "title" => "Зелёные листья",
-        "desc" => "Листики",
-        "img" => "assets/imgs/cards/14.Листва.jpg",
-        "slug" => "Облака~"
-  ],
-  2 => [
-    "title" => "Облака~",
-    "desc" => "Белокрылые лошадки",    
-    "img" => "assets/imgs/cards/15.Облака.jpg",
-    "slug" => "Облака~"
-  ],
-  3 => [
-    "title" => "Город сверху",
-    "desc" => "Городочек",
-    "img" => "assets/imgs/cards/16.Город.jpg",
-    "slug" => "Облака~"
-  ],
-  4 => [
-    "title" => "Большой мост",
-    "desc" => "Мостик",
-    "img" => "assets/imgs/cards/17.Мост.jpg",
-    "slug" => "Облака~"
-  ]
-];
+$sql = "SELECT * FROM Posts ORDER BY post_id DESC";
+$posts = $db->query($sql)->FindAll();
 
-$most_popular_posts = [
-  1 => [
-        "title" => "First post",
-        "slug" => "#"
-      ],
-  2 => [
-    "title" => "Second post",
-    "slug" => "#"
-      ],
-  3 => [
-    "title" => "Trird post",
-    "slug" => "#"
-      ],
-  4 => [
-    "title" => "Foure post",
-    "slug" => "#"
-      ]     
-  ];
+$sql = "SELECT title, post_id FROM Posts ORDER BY popularity DESC LIMIT 5";
+$most_popular_posts = $db->query($sql)->FindAll();
 
 require_once VIEWS.'/index.tmpl.php';
 
