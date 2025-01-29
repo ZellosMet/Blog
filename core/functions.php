@@ -43,12 +43,7 @@ function Htmlspecialchar($str)
 
 //Функция регистрации пользователя
 function ValidationUserData(string $login, string $email, string $password, string $password_confirm, $email_users = [])
-{
-    $login = trim(htmlspecialchars($login));
-    $email = trim(htmlspecialchars($email));
-    $password = trim(htmlspecialchars($password));
-    $$password_confirm = trim(htmlspecialchars($password_confirm));
-
+{  
     $errors = []; //Массив ошибок
     $pattern_pass = "/^[a-z0-9_!@$-]{3,30}$/i";
     $pattern_login = "/^[a-zа-ю0-9_ -]{3,20}$/iu";
