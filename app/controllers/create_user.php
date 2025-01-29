@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     $sql = "SELECT user_email FROM User";
     $email_users = $db->query($sql)->FindAll();
-    $errors = RegisterUser($_POST['user_login'], $_POST['user_email'], $_POST['user_password'], $_POST['confirm_password'], $email_users);
+    $errors = ValidationUserData($_POST['user_login'], $_POST['user_email'], $_POST['user_password'], $_POST['confirm_password'], $email_users);
 
     //DieDump("");
 

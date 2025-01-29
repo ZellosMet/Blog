@@ -21,18 +21,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     ];
     $validator = new Validator();
     $validation = $validator->Validate($data, $rules);
-
-    //Проверка на пустоту полей
-    if(empty($data['title']))  
-        $errors['title'] = "Title is required";
     
-    if(empty($data['content']))   
-        $errors['content'] = "Description is required";
-    
-    if(empty($data['excerpt']))   
-        $errors['excerpt'] = "Excerpt is required";
-    
-    if(empty($errors))
+    if(!$validator->HasErrors())
     {
         $sql = "INSERT INTO Posts(title, excerpt, content, popularity) VALUES (?, ?, ?, ?)";
         if($db->query($sql, [$data['title'], $data['excerpt'], $data['content'], 0]))

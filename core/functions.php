@@ -5,7 +5,7 @@ function Dump($data)
 {
     echo "<pre>";
         var_dump($data);
-    echo "<pre>";
+    echo "</pre>";
 }
 //Вывод только содержимого переменной
 function DieDump($data)
@@ -42,7 +42,7 @@ function Htmlspecialchar($str)
 }
 
 //Функция регистрации пользователя
-function RegisterUser(string $login, string $email, string $password, string $password_confirm, $email_users = [])
+function ValidationUserData(string $login, string $email, string $password, string $password_confirm, $email_users = [])
 {
     $login = trim(htmlspecialchars($login));
     $email = trim(htmlspecialchars($email));
