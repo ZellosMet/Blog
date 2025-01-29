@@ -41,8 +41,16 @@ class DB
     //Метод для выполнения запросов
     public function query($query, $params = [])
     {
-        $this->stnt = $this->conn->prepare($query);
-        $this->stnt->execute($params);
+        try 
+        {
+            $this->stnt = $this->conn->prepare($query);
+            $this->stnt->execute($params);
+        } 
+        catch (PDOException $e) 
+        {
+            return false;
+        }
+        
         return $this;
     }
     //Метод для получение всех записей    

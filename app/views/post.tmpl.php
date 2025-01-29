@@ -19,7 +19,7 @@
               <div style="display: flex; flex-direction: row;">
                 <p class="card-text">Popularity: <?=$popular?> </p>
                 <form method = POST>
-                  <button class="bg-dark" type="submit" name="incr_poopulsr" style="width: 30px; height: 30px"><img src="assets/imgs/cards/thumbs_up.png" style="width: 15px; height: 15px"></button>
+                  <button class="bg-dark" type="submit" name="incr_poopulsr" style="width: 30px; height: 30px"> <img src="assets/imgs/cards/thumbs_up.png" style="width: 15px; height: 15px"> </button>
                 </form>
               </div>
             </div>
